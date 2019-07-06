@@ -36,11 +36,9 @@ public class MainActivity extends AppCompatActivity {
         LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile"));
 
         AccessToken accessToken = AccessToken.getCurrentAccessToken();
+        System.out.println(accessToken);
+
         //여기에서 application id와 user id얻으면 될듯!
-        final String getUserId=Profile.getCurrentProfile().getId();
-        final String getName=Profile.getCurrentProfile().getName();
-        System.out.println(getName);
-        System.out.println(getUserId);
 
         boolean isLoggedIn = accessToken != null && !accessToken.isExpired();
 
@@ -70,20 +68,22 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(LoginResult loginResult) {
                         // 성공하면 그 다음 tab activity 로 넘어가야함.
-                        Intent mainIntent =new Intent(MainActivity.this, TabActivity.class);
-                        Intent intentName =new Intent(MainActivity.this, TabActivity.class);
-                        Intent intentID=new Intent(MainActivity.this, TabActivity.class);
-                        intentName.putExtra("namedata",getName);
-                        intentID.putExtra("IDdata",getUserId);
+                        //Intent mainIntent =new Intent(MainActivity.this, TabActivity.class);
+
+                        //final String getUserId=Profile.getCurrentProfile().getId();
+                        final String getName=Profile.getCurrentProfile().getName();
+                        System.out.println(getName);
+                        //System.out.println(getUserId);
 
 
-                        MainActivity.this.startActivity(mainIntent);
-                        MainActivity.this.startActivity(intentID);
-                        MainActivity.this.startActivity(intentName);
+                        Intent intent =new Intent(MainActivity.this, TabActivity.class);
+
+                        intent.putExtra("namedata",getName);
+                        //intent.putExtra("IDdata",getUserId);
 
 
-
-
+                        //MainActivity.this.startActivity(mainIntent);
+                        MainActivity.this.startActivity(intent);
                         MainActivity.this.finish();
                     }
 

@@ -48,12 +48,7 @@ public class NavigationOne extends Fragment {
         View navigation_contact = inflater.inflate(R.layout.navigation_contact, container, false);
         RecyclerView recyclerView=(RecyclerView)navigation_contact.findViewById(R.id.recyclerview_main_list);
 
-        toolbar = (Toolbar) navigation_contact.findViewById(R.id.toolbar);
-        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Contact");
 
-
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);;
         //Button buttonInsert=(Button)navigation_contact.findViewById(R.id.buttonAdd);
         mLayoutManager=new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
@@ -65,57 +60,15 @@ public class NavigationOne extends Fragment {
     }
     private void getData(){
         JSONObject obj=new JSONObject();
-        JSONObject obj2=new JSONObject();
-        JSONObject obj3=new JSONObject();
-        JSONObject obj4=new JSONObject();
-        JSONObject obj5=new JSONObject();
-        JSONObject obj6=new JSONObject();
-        JSONObject obj7=new JSONObject();
-        JSONObject obj8=new JSONObject();
-        JSONObject obj9=new JSONObject();
-        JSONObject obj10=new JSONObject();
+
         JSONArray array=new JSONArray();
         try{
             obj.put("name","리본겨울");
             obj.put("number","01012345678");
             obj.put("img",R.drawable.wimage_1);
-            obj2.put("name","뽀짝겨울");
-            obj2.put("number","01013572468");
-            obj2.put("img",R.drawable.wimage_2);
-            obj3.put("name","토끼귀겨울");
-            obj3.put("number","01098765432");
-            obj3.put("img",R.drawable.wimage_3);
-            obj4.put("name","사자겨울");
-            obj4.put("number","01024681357");
-            obj4.put("img",R.drawable.wimage_4);
-            obj5.put("name","금겨울");
-            obj5.put("number","0102481632");
-            obj5.put("img",R.drawable.wimage_5);
-            obj6.put("name","쳐다보겨울");
-            obj6.put("number","04212345678");
-            obj6.put("img",R.drawable.wimage_6);
-            obj7.put("name","바다산책하는 겨울");
-            obj7.put("number","04213572468");
-            obj7.put("img",R.drawable.wimage_7);
-            obj8.put("name","꼬리염색겨울");
-            obj8.put("number","04224681357");
-            obj8.put("img",R.drawable.wimage_8);
-            obj9.put("name","카이스트산책겨울");
-            obj9.put("number","04298765432");
-            obj9.put("img",R.drawable.wimage_9);
-            obj10.put("name","찡긋겨울");
-            obj10.put("number","04201294837");
-            obj10.put("img",R.drawable.wimage_10);
+
             array.put(obj);
-            array.put(obj2);
-            array.put(obj3);
-            array.put(obj4);
-            array.put(obj5);
-            array.put(obj6);
-            array.put(obj7);
-            array.put(obj8);
-            array.put(obj9);
-            array.put(obj10);
+
         }catch (JSONException e){
             e.printStackTrace();
         }

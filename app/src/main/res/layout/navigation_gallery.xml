@@ -13,16 +13,8 @@
         android:layout_height="wrap_content"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|enterAlways"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
-    </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
         android:id="@+id/container"
@@ -31,27 +23,18 @@
         tools:context="com.example.application.NavigationTwo" android:orientation="vertical"
         app:layout_constraintTop_toTopOf="@+id/appBarLayout" app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-        <TextView
-            android:id="@+id/text"
-            android:text="  쭈 &amp; 꾸미 갤러리♥︎"
-            android:textColor="#000"
-            android:textStyle="bold"
-            android:textSize="20dp"
-            android:layout_marginTop="80dp"
 
-            android:layout_width="180dp"
-            android:layout_height="30dp"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/image"
             android:layout_width="match_parent"
-            android:layout_height="490dp"
+            android:layout_height="match_parent"
             android:layout_marginTop="10dp"
             android:scrollbarFadeDuration="0"
             android:scrollbarSize="3dp"
             android:scrollbarThumbVertical="@android:color/darker_gray"
+            android:scrollbars="vertical"
             app:layoutManager="GridLayoutManager"
-            app:spanCount="2"
-            android:scrollbars="vertical"/>
+            app:spanCount="2" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
