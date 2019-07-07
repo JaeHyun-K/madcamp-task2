@@ -17,11 +17,6 @@ import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.GridLayoutManager;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class NavigationTwo extends Fragment {
@@ -30,38 +25,9 @@ public class NavigationTwo extends Fragment {
     RecyclerView mRecyclerView;
     private Toolbar toolbar;
 
-    public static File binarytoFile(String binaryFile, String filePath, String fileName) {
-        if ((binaryFile == null || "".equals(binaryFile)) || (filePath == null || "".equals(filePath))
-                || (fileName == null || "".equals(fileName))) {
-            return null;
-        }
 
-        FileOutputStream fos = null;
-
-        File fileDir = new File(filePath);
-        if (!fileDir.exists()) {
-            fileDir.mkdirs();
-        }
-
-        File destFile = new File(filePath + fileName);
-
-        byte[] buff = binaryFile.getBytes();
-        String toStr = new String(buff);
-        byte[] b64dec = base64Dec(toStr);
-
-        try {
-            fos = new FileOutputStream(destFile);
-            fos.write(b64dec);
-            fos.close();
-        } catch (IOException e) {
-            System.out.println("Exception position : FileUtil - binaryToFile(String binaryFile, String filePath, String fileName)");
-        }
-
-        return destFile;
-    }
-
-    private final String mImageText[] = {};
-    private final Integer mImageList[] = {};
+    private final String mImageText[] = {"폰배경화면"};
+    private final Integer mImageList[] = {R.drawable.image_1};
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 

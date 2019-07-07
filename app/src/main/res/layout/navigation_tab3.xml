@@ -7,22 +7,14 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-<com.google.android.material.appbar.AppBarLayout
-android:layout_width="0dp"
-android:layout_height="wrap_content"
-android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-app:layout_constraintTop_toTopOf="parent"
-app:layout_constraintStart_toStartOf="parent"
-app:layout_constraintEnd_toEndOf="parent">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-<androidx.appcompat.widget.Toolbar
-    android:id="@+id/toolbar"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="?attr/colorPrimary"
-    app:layout_scrollFlags="scroll|enterAlways"
-    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
-</com.google.android.material.appbar.AppBarLayout>
+
 
 <LinearLayout
 android:layout_width="match_parent"
@@ -46,7 +38,7 @@ tools:context=".MainActivity">
         android:id="@+id/recyclerview_main_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="70dp"
+        app:layout_constraintVertical_weight="9"
         android:scrollbarFadeDuration="0"
         android:scrollbarSize="5dp"
         android:scrollbarThumbVertical="@android:color/darker_gray"

@@ -1,4 +1,5 @@
 package com.example.myapplication;
+import android.content.Intent;
 import android.os.Bundle;
 import java.lang.Object;
 import android.view.View;
@@ -8,7 +9,7 @@ import android.widget.FrameLayout;
 import android.view.ViewParent;
 import android.view.ViewManager;
 import androidx.viewpager.widget.PagerAdapter;
-import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+//import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.fragment.*;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,7 +32,17 @@ public class TabActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+        setContentView(R.layout.activity_tab);
+
+        //전 Activity에서 정보 넘겨받기
+        Intent intent=getIntent();
+        String namedata=intent.getStringExtra("namedata");
+        //String iddata=intent.getStringExtra("IDdata");
+
+
+        //android studio 에서 node js로 해당 값 넘겨줘서 연결시켜야함!
+
         navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         viewPager = findViewById(R.id.viewpager); //Init Viewpager
@@ -73,12 +84,15 @@ public class TabActivity extends AppCompatActivity {
         public void onPageSelected(int position) {
             switch (position) {
                 case 0:
+                    setTitle("Contact");
                     navigation.setSelectedItemId(R.id.navigation_contact);
                     break;
                 case 1:
+                    setTitle("Gallery");
                     navigation.setSelectedItemId(R.id.navigation_gallery);
                     break;
                 case 2:
+                    setTitle("TODO list");
                     navigation.setSelectedItemId(R.id.navigation_flashcards);
                     break;
             }

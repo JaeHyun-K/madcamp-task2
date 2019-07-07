@@ -9,6 +9,7 @@ import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
+import com.facebook.Profile;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
@@ -26,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
 
         callbackManager = CallbackManager.Factory.create();
 
-
         LoginButton loginButton = (LoginButton) findViewById(R.id.login_button);
         loginButton.setReadPermissions("email");
         // If using in a fragment
@@ -36,6 +36,10 @@ public class MainActivity extends AppCompatActivity {
         LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile"));
 
         AccessToken accessToken = AccessToken.getCurrentAccessToken();
+        System.out.println(accessToken);
+
+        //여기에서 application id와 user id얻으면 될듯!
+
         boolean isLoggedIn = accessToken != null && !accessToken.isExpired();
 
         // Callback registration
@@ -63,7 +67,24 @@ public class MainActivity extends AppCompatActivity {
                 new FacebookCallback<LoginResult>() {
                     @Override
                     public void onSuccess(LoginResult loginResult) {
-                        // App code
+                        // 성공하면 그 다음 tab activity 로 넘어가야함.
+                        //Intent mainIntent =new Intent(MainActivity.this, TabActivity.class);
+
+                        //final String getUserId=Profile.getCurrentProfile().getId();
+                        final String getName=Profile.getCurrentProfile().getName();
+                        System.out.println(getName);
+                        //System.out.println(getUserId);
+
+
+                        Intent intent =new Intent(MainActivity.this, TabActivity.class);
+
+                        intent.putExtra("namedata",getName);
+                        //intent.putExtra("IDdata",getUserId);
+
+
+                        //MainActivity.this.startActivity(mainIntent);
+                        MainActivity.this.startActivity(intent);
+                        MainActivity.this.finish();
                     }
 
                     @Override
