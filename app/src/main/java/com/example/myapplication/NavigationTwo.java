@@ -17,6 +17,11 @@ import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.GridLayoutManager;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class NavigationTwo extends Fragment {
@@ -25,12 +30,38 @@ public class NavigationTwo extends Fragment {
     RecyclerView mRecyclerView;
     private Toolbar toolbar;
 
+    public static File binarytoFile(String binaryFile, String filePath, String fileName) {
+        if ((binaryFile == null || "".equals(binaryFile)) || (filePath == null || "".equals(filePath))
+                || (fileName == null || "".equals(fileName))) {
+            return null;
+        }
 
-    private final String mImageText[] = {"폰배경화면","sleepy 쭈","산책시러","꺄~뀽~!","zzz","!!!","킁킁","꺠꼬닥","꾸에에엥","꾸?","아잉 졸려","후에에엥","찌찌자랑", "방석킬러","사이좋은고양이들","사이좋은고양이들2","아이러브캣타워",};
-    private final Integer mImageList[] = {R.drawable.image_1, R.drawable.image_2, R.drawable.image_3,
-            R.drawable.image_4, R.drawable.image_5, R.drawable.image_6, R.drawable.image_7,
-            R.drawable.image_8, R.drawable.image_9, R.drawable.image_10, R.drawable.image_11,
-            R.drawable.image_12, R.drawable.image_13, R.drawable.image_14, R.drawable.image_15, R.drawable.image_16, R.drawable.image_17,};
+        FileOutputStream fos = null;
+
+        File fileDir = new File(filePath);
+        if (!fileDir.exists()) {
+            fileDir.mkdirs();
+        }
+
+        File destFile = new File(filePath + fileName);
+
+        byte[] buff = binaryFile.getBytes();
+        String toStr = new String(buff);
+        byte[] b64dec = base64Dec(toStr);
+
+        try {
+            fos = new FileOutputStream(destFile);
+            fos.write(b64dec);
+            fos.close();
+        } catch (IOException e) {
+            System.out.println("Exception position : FileUtil - binaryToFile(String binaryFile, String filePath, String fileName)");
+        }
+
+        return destFile;
+    }
+
+    private final String mImageText[] = {};
+    private final Integer mImageList[] = {};
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 

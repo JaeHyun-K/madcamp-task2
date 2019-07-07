@@ -22,7 +22,7 @@
             android:layout_height="match_parent"
             android:background="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|enterAlways"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -30,21 +30,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context="com.example.application.NavigationTwo_Detail">
+        tools:context="com.example.application.NavigationTwo_Detail"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="16dp">
+
         <Button
             android:id="@+id/btn_intent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
             android:layout_marginBottom="10dp"
-            android:text="@string/back"
-            />
+            android:text="@string/back" />
 
         <ImageView
             android:id="@+id/image"
             android:layout_width="match_parent"
             android:layout_height="502dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/image_1"/>
+            android:src="@drawable/image_1" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
