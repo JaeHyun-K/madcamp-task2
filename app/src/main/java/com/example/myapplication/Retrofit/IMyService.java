@@ -1,13 +1,9 @@
 package com.example.myapplication.Retrofit;
 
-import java.sql.Array;
-import java.util.Arrays;
-import java.util.Observable;
-
+import io.reactivex.Observable;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
-import retrofit2.http.Path;
 
 public interface IMyService {
 
@@ -41,26 +37,22 @@ public interface IMyService {
 
     @POST("todo/crud/create")
     @FormUrlEncoded
-    Observable<String> makeTodo(@Field("name") String name,
-                                   @Field("number") String number,
-                                   @Field("email") String email);
+    Observable<String> makeTodo(@Field("maketodo") String maketodo);
+
+
     @POST("todo/crud/delete")
     @FormUrlEncoded
-    Observable<String> deleteTodo(@Field("name") String name,
-                                     @Field("number") String number,
-                                     @Field("email") String email);
+    Observable<String> deleteTodo(@Field("tododelete") String tododelete);
 
     @POST("todo/crud/research")
     @FormUrlEncoded
-    Observable<String> researchTodo(@Field("name") String name,
-                                       @Field("number") String number,
-                                       @Field("email") String email);
+    Observable<String> researchTodo(@Field("researchtodo") String researchtodo);
+
 
     @POST("todo/crud/update")
     @FormUrlEncoded
-    Observable<String> updateTodo(@Field("name") String name,
-                                     @Field("number") String number,
-                                     @Field("email") String email);
+    Observable<String> updateTodo(@Field("updatetodo") String updatetodo);
+
 
 
 }
