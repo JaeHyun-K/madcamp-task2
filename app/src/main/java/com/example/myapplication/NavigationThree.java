@@ -26,7 +26,7 @@ public class NavigationThree extends Fragment {
     private LinearLayoutManager m2LayoutManager;
     private RecyclerAdapter adapter2;
     private Toolbar toolbar;
-    private conlist data2;
+    private Contactlist data2;
 
 
     @Nullable
@@ -46,8 +46,8 @@ public class NavigationThree extends Fragment {
         RecyclerView recyclerView3=(RecyclerView)navigation_tab3.findViewById(R.id.recyclerview);
         m2LayoutManager=new LinearLayoutManager(getActivity());
         recyclerView3.setLayoutManager(m2LayoutManager);
-        adapter2=new RecyclerAdapter();
-        recyclerView3.setAdapter(adapter2);
+//        adapter2=new RecyclerAdapter();
+//        recyclerView3.setAdapter(adapter2);
 
 
 

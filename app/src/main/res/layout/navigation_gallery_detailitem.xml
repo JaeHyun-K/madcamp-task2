@@ -50,6 +50,6 @@
             android:layout_width="match_parent"
             android:layout_height="502dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/image_1" />
+            android:src="@drawable/image_3" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

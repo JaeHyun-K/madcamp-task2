@@ -15,6 +15,12 @@
         <item name="android:titleTextStyle">@style/MyTheme.ActionBar.TitleTextStyle</item>
     </style>
 
+    <style name="AlertDialog" parent="Base.Theme.AppCompat.Light.Dialog">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColorPrimary">#c7b6b3</item>
+        <item name="android:colorAccent">@color/colorPrimary</item>
+    </style>
+
     <style name="MyTheme.ActionBar.TitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
         <item name="android:textColor">@color/colorPrimary</item>
     </style>

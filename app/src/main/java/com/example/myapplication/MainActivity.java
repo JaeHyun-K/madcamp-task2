@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
                         //final String getUserId=Profile.getCurrentProfile().getId();
                         final String getName=Profile.getCurrentProfile().getName();
-                        System.out.println(getName);
+
                         //System.out.println(getUserId);
 
 

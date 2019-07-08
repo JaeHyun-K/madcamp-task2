@@ -15,9 +15,9 @@ public interface IMyService {
     @FormUrlEncoded
     Observable<String> getContacts(@Field("name") String name);
 
-    @POST("gallery")
-    @FormUrlEncoded
-    Observable<String> getGallery(@Field("name") String name);
+//    @POST("gallery")
+//    @FormUrlEncoded
+//    Observable<String> getGallery(@Field("name") String name);
 
     @POST("todo")
     @FormUrlEncoded
@@ -31,20 +31,20 @@ public interface IMyService {
                                    @Field("email") String email);
     @POST("contacts/crud/delete")
     @FormUrlEncoded
-    Observable<String> deleteContact(@Field("account") String account,@Field("name") String name,
+    Observable<String> deleteContact(@Field("user") String user,@Field("name") String name,
                                    @Field("number") String number);
 
-    @POST("contacts/crud/research")
-    @FormUrlEncoded
-    Observable<String> researchContact(@Field("account") String account,@Field("name") String name,
-                                   @Field("number") String number,
-                                   @Field("email") String email);
-
-    @POST("contacts/crud/update")
-    @FormUrlEncoded
-    Observable<String> updateContact(@Field("account") String account,@Field("name") String name,
-                                   @Field("number") String number,
-                                   @Field("email") String email);
+//    @POST("contacts/crud/research")
+//    @FormUrlEncoded
+//    Observable<String> researchContact(@Field("account") String account,@Field("name") String name,
+//                                   @Field("number") String number,
+//                                   @Field("email") String email);
+//
+//    @POST("contacts/crud/update")
+//    @FormUrlEncoded
+//    Observable<String> updateContact(@Field("account") String account,@Field("name") String name,
+//                                   @Field("number") String number,
+//                                   @Field("email") String email);
 
     @POST("todo/crud/create")
     @FormUrlEncoded
@@ -64,9 +64,9 @@ public interface IMyService {
     @FormUrlEncoded
     Observable<String> updateTodo(@Field("name") String name,@Field("updatetodo") String updatetodo);
 
-    @POST("gallery/crud/delete")
-    @FormUrlEncoded
-    Observable<String> deleteGallery(@Field("image") String image);
+//    @POST("gallery/crud/delete")
+//    @FormUrlEncoded
+//    Observable<String> deleteGallery(@Field("image") String image);
 
 
 }

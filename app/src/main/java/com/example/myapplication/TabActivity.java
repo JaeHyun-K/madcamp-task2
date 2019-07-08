@@ -23,7 +23,7 @@ import android.app.Fragment;
 public class TabActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
-    private ArrayList<conlist> mArrayList;
+    private ArrayList<Contactlist> mArrayList;
 
     private FragmentManager fragmentManager;
 
@@ -38,8 +38,6 @@ public class TabActivity extends AppCompatActivity {
         //전 Activity에서 정보 넘겨받기
         Intent intent=getIntent();
         String namedata=intent.getStringExtra("namedata");
-        //String iddata=intent.getStringExtra("IDdata");
-
 
         //android studio 에서 node js로 해당 값 넘겨줘서 연결시켜야함!
 
@@ -76,6 +74,8 @@ public class TabActivity extends AppCompatActivity {
             return false;
         }
     };
+
+
     public class PageChange implements ViewPager.OnPageChangeListener {
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {

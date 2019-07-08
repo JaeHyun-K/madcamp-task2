@@ -19,6 +19,7 @@
 
     <LinearLayout android:layout_width="0dp" android:layout_height="match_parent"
         android:layout_weight="1"
+        android:id="@+id/Linearlayout_id"
         android:orientation="vertical"
         android:gravity="center_vertical">
         <TextView
@@ -45,9 +46,9 @@
     <ImageButton
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:background="@drawable/ic_mode_edit_black_24dp"
+        android:background="@drawable/ic_phone_black_24dp"
         android:layout_marginRight="7dp"
-        android:id="@+id/edit_contact"/>
+        android:id="@+id/call_button"/>
 
     <ImageButton
         android:layout_width="35dp"
@@ -55,11 +56,5 @@
         android:background="@drawable/ic_delete_black_24dp"
         android:layout_marginRight="7dp"
         android:id="@+id/delete_contact"/>
-
-    <ImageButton
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:background="@drawable/ic_phone_black_24dp"
-        android:id="@+id/phonecall"/>
 
 </LinearLayout>
