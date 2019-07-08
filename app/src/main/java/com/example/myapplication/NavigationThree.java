@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.ViewGroup;
@@ -22,28 +23,34 @@ public class NavigationThree extends Fragment {
 
     private FloatingActionButton fab;
     private RecyclerView m2Recyclerview;
+    private LinearLayoutManager m2LayoutManager;
     private RecyclerAdapter adapter2;
     private Toolbar toolbar;
+    private conlist data2;
 
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        super.onCreateView(savedInstanceState);
+
         View navigation_tab3 = inflater.inflate(R.layout.navigation_tab3, container, false);
 
-        fab = (FloatingActionButton)((AppCompatActivity)getActivity()).findViewById(R.id.plus);
-        fab.setOnClickListener(new view.onclickli);
 
-
-//        mCalendarView = (CalendarView)((AppCompatActivity)getActivity()).findViewById(R.id.calender);
-//
-//        mCalendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-//            @Override
-//            public void onSelectedDayChange(CalendarView calendarView, int i, int i1, int i2) {
-//                String date = i+"/"+
-//            }
+        fab = (FloatingActionButton)navigation_tab3.findViewById(R.id.plus);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MainActivity)getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new CalendarActivity()).commit();
+            }
         });
+        RecyclerView recyclerView3=(RecyclerView)navigation_tab3.findViewById(R.id.recyclerview);
+        m2LayoutManager=new LinearLayoutManager(getActivity());
+        recyclerView3.setLayoutManager(m2LayoutManager);
+        adapter2=new RecyclerAdapter();
+        recyclerView3.setAdapter(adapter2);
+
+
+
         return navigation_tab3;
     }
 }

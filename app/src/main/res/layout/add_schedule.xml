@@ -45,16 +45,19 @@
             />
 
         <EditText
-            android:id="@+id/taxitime"
+            android:id="@+id/schedule"
             android:textSize="15sp"
             android:textColor="#000"
             android:alpha="0.87"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:singleLine = "true"
             android:lines = "1"
             android:layout_height="wrap_content"
-            android:inputType="number"/>
+            android:inputType="number"
+            android:hint="Schedule"
+            android:gravity="center"/>
 
         <Button
             android:layout_margin="10dp"

@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.provider.ContactsContract;
 import android.view.LayoutInflater;
@@ -18,62 +19,57 @@ import java.lang.Object;
 
 public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ItemViewHolder> {
     private Context context;
-    private ArrayList<conlist> listData = new ArrayList<>();
+    private ArrayList<conlist2> listData2 = new ArrayList<>();
     @NonNull
     @Override
     public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.navigation_todolist, parent, false);
         this.context= parent.getContext();
         return new ItemViewHolder(view);
     }
     @Override
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
-        holder.onBind(listData.get(position));
+        holder.onBind(listData2.get(position));
     }
     @Override
     public int getItemCount() {
-        // RecyclerView의 총 개수 입니다.
-        return listData.size();
+        return listData2.size();
     }
-    void addItem(conlist data) {
-        listData.add(data);
+    void addItem(conlist2 data2) {
+        listData2.add(data2);
     }
-    class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    class ItemViewHolder extends RecyclerView.ViewHolder {
         private TextView text_todo;
-        private TextView text_data;
-        private conlist data;
-        public LinearLayout linearLayout;
-        private ImageView imageView;
+        private TextView text_date;
+        private conlist2 data2;
+        public LinearLayout linearLayout2;
+        @SuppressLint("WrongViewCast")
         ItemViewHolder(View itemView) {
             super(itemView);
-            textView1 = itemView.findViewById(R.id.text1);
-            textView2 = itemView.findViewById(R.id.text2);
-            imageView=itemView.findViewById(R.id.image);
-            linearLayout=(LinearLayout) itemView.findViewById(R.id.linearItem);
+            text_todo = itemView.findViewById(R.id.text_todo);
+            text_date = itemView.findViewById(R.id.text_date);
+            linearLayout2=(LinearLayout)itemView.findViewById(R.id.linearItem2);
         }
-        void onBind(conlist data) {
-            this.data=data;
-            textView1.setText(data.getName());
-            textView2.setText(data.getNumber());
-            imageView.setImageResource(data.getResId());
+        void onBind(conlist2 data2) {
+            this.data2=data2;
+            text_todo.setText(data2.getText_todo());
+            text_date.setText(data2.getText_date());
 
-            itemView.setOnClickListener(this);
-            textView1.setOnClickListener(this);
-            textView2.setOnClickListener(this);
         }
-        @Override
-        public void onClick(View v){
-            switch (v.getId()){
-                case R.id.linearItem:
-                    Toast.makeText(context,"NAME: "+data.getName()+"\nNumber"+data.getNumber(),Toast.LENGTH_SHORT).show();
-                    break;
-                case R.id.text1:
-                    Toast.makeText(context,data.getName(),Toast.LENGTH_SHORT).show();
-                    break;
-                case R.id.text2:
-                    Toast.makeText(context,data.getNumber(),Toast.LENGTH_SHORT).show();
-                    break;
-            }
-        }
+
+//        @Override
+//        public void onClick(View v){
+//            switch (v.getId()){
+//                case R.id.linearItem:
+//                    Toast.makeText(context,"NAME: "+data.getName()+"\nNumber"+data.getNumber(),Toast.LENGTH_SHORT).show();
+//                    break;
+//                case R.id.text1:
+//                    Toast.makeText(context,data.getName(),Toast.LENGTH_SHORT).show();
+//                    break;
+//                case R.id.text2:
+//                    Toast.makeText(context,data.getNumber(),Toast.LENGTH_SHORT).show();
+//                    break;
+//            }
+//        }
     }
 }
