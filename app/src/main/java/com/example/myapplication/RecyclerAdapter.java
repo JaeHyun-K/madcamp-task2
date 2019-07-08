@@ -18,7 +18,14 @@ import java.lang.Object;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemViewHolder> {
     private Context context;
-    private ArrayList<conlist> listData = new ArrayList<>();
+    private ImageButton calling;
+    private ImageButton remove;
+    private ImageButton edit;
+    private AdapterView.OnItemClickListener callItemListener;
+    private AdapterView.OnItemClickListener rmvItemListener;
+    private AdapterView.OnItemClickListener editItemListener;
+
+    private ArrayList<Contactlist> listData = new ArrayList<>();
     @NonNull
     @Override
     public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -35,27 +42,30 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
         // RecyclerView의 총 개수 입니다.
         return listData.size();
     }
-    void addItem(conlist data) {
+    void addItem(Contactlist data) {
         listData.add(data);
     }
     class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private TextView textView1;
         private TextView textView2;
-        private conlist data;
+        //private TextView textView3;
+        private Contactlist data;
         public LinearLayout linearLayout;
         private ImageView imageView;
         ItemViewHolder(View itemView) {
             super(itemView);
             textView1 = itemView.findViewById(R.id.text1);
             textView2 = itemView.findViewById(R.id.text2);
+            //textView3=itemView.findViewById(R.id.text3);
             imageView=itemView.findViewById(R.id.image);
             linearLayout=(LinearLayout) itemView.findViewById(R.id.linearItem);
         }
-        void onBind(conlist data) {
+        void onBind(Contactlist data) {
             this.data=data;
             textView1.setText(data.getName());
             textView2.setText(data.getNumber());
             imageView.setImageResource(data.getResId());
+            //textView3.set
 
             itemView.setOnClickListener(this);
             textView1.setOnClickListener(this);
@@ -75,5 +85,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
                     break;
             }
         }
+
+
     }
 }
