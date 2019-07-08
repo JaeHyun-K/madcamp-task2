@@ -1,10 +1,12 @@
 package com.example.myapplication;
 
-public class conlist {
+public class Contactlist {
+
 
     private String name;
     private String number;
     private int resId;
+    private String email;
 
     public String getName() {
         return name;
@@ -12,6 +14,14 @@ public class conlist {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String name) {
+        this.email = email;
     }
 
     public int getResId(){
@@ -30,9 +40,6 @@ public class conlist {
         this.number = number;
     }
 
-    public conlist(String name, String number,int resId) {
-        this.name = name;
-        this.number = number;
-        this.resId=resId;
-    }
+
+
 }

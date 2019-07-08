@@ -2,7 +2,11 @@ package com.example.myapplication;
 
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -30,6 +34,7 @@ public class NavigationTwo_RecyclerViewAdapter extends RecyclerView.Adapter<Navi
     public NavigationTwo_RecyclerViewAdapter.ImageViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.navigation_gallery_grindlistitem,
                 parent, false);
+
         return new ImageViewHolder(view);
     }
 
@@ -65,7 +70,34 @@ public class NavigationTwo_RecyclerViewAdapter extends RecyclerView.Adapter<Navi
 
             title = (TextView) view.findViewById(R.id.text);
             img = (ImageView) view.findViewById(R.id.image);
+            view.setOnCreateContextMenuListener(getActivity());
         }
+
+
+        public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo){
+            MenuItem Delete=menu.add(Menu.NONE,1002,2,"삭제");
+            Delete.setOnMenuItemClickListener(onEditMenu);
+        }
+        private final MenuItem.OnMenuItemClickListener onEditMenu = new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+
+                switch (menuItem.getItemId()) {
+                    case 1002:
+
+                        mGalleryList.remove(getAdapterPosition());
+                        notifyItemRemoved(getAdapterPosition());
+                        notifyItemRangeChanged(getAdapterPosition(), mGalleryList.size());
+
+                        notifyItemChanged(getAdapterPosition());
+
+                        break;
+                }
+                return true;
+            }
+        };
+
     }
+
 }
 
